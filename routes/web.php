@@ -25,7 +25,7 @@ Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.s
 
 /*CUSTOMER ROUTES*/
 Route::middleware(['auth', 'role:customer'])->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
     Route::get('/checkout', function () {
         return view('customer.checkout');
