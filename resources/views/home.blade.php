@@ -53,6 +53,106 @@
 
     <!-- ========== MAIN CONTENT ========== -->
     <main>
+        <!-- ========== SELLER CTA BANNER (NEW) ========== -->
+        <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+                    <div class="flex-1 text-center lg:text-left">
+                        <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+                            💼 Mulai Berjualan di Marketplace Kami
+                        </h2>
+                        <p class="text-lg text-blue-100 mb-6 max-w-2xl">
+                            Bergabunglah dengan ribuan penjual sukses! Daftarkan toko Anda sekarang dan jangkau jutaan pembeli di seluruh Indonesia.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="{{ route('seller.register') }}"
+                                class="inline-flex items-center justify-center gap-3 bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                </svg>
+                                Daftar Sebagai Penjual
+                            </a>
+                            <a href="#benefits"
+                                class="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all">
+                                Pelajari Lebih Lanjut
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                                <div class="text-4xl font-bold">1000+</div>
+                                <div class="text-sm text-blue-100 mt-2">Penjual Aktif</div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                                <div class="text-4xl font-bold">50K+</div>
+                                <div class="text-sm text-blue-100 mt-2">Produk Terjual</div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                                <div class="text-4xl font-bold">4.8★</div>
+                                <div class="text-sm text-blue-100 mt-2">Rating Penjual</div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                                <div class="text-4xl font-bold">24/7</div>
+                                <div class="text-sm text-blue-100 mt-2">Support</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== BENEFITS SECTION (NEW) ========== -->
+        <section id="benefits" class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+                    Keuntungan Menjadi Penjual
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Gratis Pendaftaran</h3>
+                        <p class="text-gray-600">Tidak ada biaya pendaftaran atau biaya bulanan. Mulai berjualan tanpa risiko finansial.</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Jangkauan Luas</h3>
+                        <p class="text-gray-600">Akses ke jutaan pembeli potensial di seluruh Indonesia dengan marketplace kami.</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Aman & Terpercaya</h3>
+                        <p class="text-gray-600">Sistem pembayaran aman dan perlindungan transaksi untuk kenyamanan berjualan.</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <a href="{{ route('seller.register') }}"
+                        class="inline-flex items-center gap-3 bg-blue-600 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        Mulai Berjualan Sekarang
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <div class="container mx-auto px-4 py-8">
             <div class="flex flex-col lg:flex-row gap-8">
 
@@ -240,17 +340,25 @@
     <!-- ========== FOOTER ========== -->
     <footer class="bg-gray-800 text-white mt-16 py-8">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Tentang Kami</h3>
                     <p class="text-gray-400">Marketplace terpercaya dengan berbagai pilihan produk dari toko terpercaya.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Layanan</h3>
+                    <h3 class="text-lg font-semibold mb-4">Untuk Pembeli</h3>
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="#" class="hover:text-white transition">Cara Berbelanja</a></li>
                         <li><a href="#" class="hover:text-white transition">Kebijakan Pengembalian</a></li>
                         <li><a href="#" class="hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Untuk Penjual</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="{{ route('seller.register') }}" class="hover:text-white transition">Daftar Sebagai Penjual</a></li>
+                        <li><a href="#" class="hover:text-white transition">Panduan Penjual</a></li>
+                        <li><a href="#" class="hover:text-white transition">Pusat Edukasi</a></li>
                     </ul>
                 </div>
                 <div>
