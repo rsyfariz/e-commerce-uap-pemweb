@@ -36,19 +36,16 @@ Route::middleware(['auth', 'role:customer'])->group(function () {
     })->name('transactions.show');
 
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
-
+    
     Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart');
     Route::post('/cart/add/{product}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
     Route::patch('/cart/update/{cartItem}', [App\Http\Controllers\CartController::class, 'update'])->name('cart.update');
     Route::delete('/cart/remove/{cartItem}', [App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
     Route::delete('/cart/clear', [App\Http\Controllers\CartController::class, 'clear'])->name('cart.clear');
-<<<<<<< HEAD
 
     Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
     Route::post('/checkout/process', [App\Http\Controllers\CheckoutController::class, 'process'])->name('checkout.process');
     Route::get('/checkout/success/{transaction}', [App\Http\Controllers\CheckoutController::class, 'success'])->name('checkout.success');
-=======
->>>>>>> a756da1a4701a0068524e681a0e54ebb0a293f31
 });
 
 /*SELLER ROUTES*/
