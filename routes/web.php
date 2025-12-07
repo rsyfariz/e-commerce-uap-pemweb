@@ -51,18 +51,28 @@ Route::middleware(['auth', 'role:customer'])->group(function () {
 
     // Transactions routes
     Route::get('/transactions', function () {
-        $transactions = \App\Models\Transaction::where('user_id', Auth::id())
-            ->with(['transactionDetails', 'store'])
-            ->latest()
-            ->paginate(10);
-        return view('customer.transactions', compact('transactions'));
+        $query = \App\Models\Transaction::where('user_id', Auth::id())
+            ->with(['transactionDetails.product.productImages', 'store']);
+
+        // Filter by payment status
+        if (request('status')) {
+            $query->where('payment_status', request('status'));
+        }
+
+        $transactions = $query->latest()->paginate(10);
+
+        return view('Transactions', compact('transactions'));
     })->name('transactions.history');
 
     Route::get('/transactions/{id}', function ($id) {
-        $transaction = \App\Models\Transaction::with('transactionDetails.product')
-            ->where('user_id', Auth::id())
-            ->findOrFail($id);
-        return view('customer.transaction-detail', compact('transaction'));
+        $transaction = \App\Models\Transaction::with([
+            'transactionDetails.product.productImages',
+            'store'
+        ])
+        ->where('user_id', Auth::id())
+        ->findOrFail($id);
+
+        return view('TransactionDetail', compact('transaction'));
     })->name('transactions.show');
 });
 
