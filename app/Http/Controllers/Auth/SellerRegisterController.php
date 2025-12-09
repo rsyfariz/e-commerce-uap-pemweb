@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -39,7 +40,7 @@ class SellerRegisterController extends Controller
 
             // Store data
             'store_name' => ['required', 'string', 'max:255'],
-            'logo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'], // max 2MB
+            'logo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
             'about' => ['required', 'string', 'max:1000'],
             'phone' => ['required', 'string', 'max:20'],
             'city' => ['required', 'string', 'max:255'],
@@ -55,7 +56,7 @@ class SellerRegisterController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'role' => 'seller',
+                'role' => 'seller', // ← UBAH INI dari 'member' ke 'seller'
             ]);
 
             // Handle logo upload
@@ -71,20 +72,34 @@ class SellerRegisterController extends Controller
                 'logo' => $logoPath,
                 'about' => $request->about,
                 'phone' => $request->phone,
-                'address_id' => null, // Will be filled later
+                'address_id' => '',
                 'city' => $request->city,
                 'address' => $request->address,
                 'postal_code' => $request->postal_code,
-                'is_verified' => false, // Waiting for admin verification
+                'is_verified' => false,
+                'verified_by' => null,
+                'verified_at' => null,
+                'rejection_reason' => null,
             ]);
 
             DB::commit();
 
             event(new Registered($user));
 
-            return redirect()->route('login')->with('success', 'Pendaftaran berhasil! Akun Anda sedang menunggu verifikasi admin. Anda akan diberitahu melalui email.');
+            return redirect()->route('login')->with('success', 'Pendaftaran berhasil! Akun Anda sedang menunggu verifikasi admin.');
         } catch (\Exception $e) {
             DB::rollBack();
+
+            // Log error untuk debugging
+            Log::error('Seller Registration Error: ' . $e->getMessage());
+            Log::error('Stack Trace: ' . $e->getTraceAsString());
+
+            // Tampilkan error di development (hapus di production)
+            if (config('app.debug')) {
+                return back()->withInput()->withErrors([
+                    'error' => 'Error: ' . $e->getMessage()
+                ]);
+            }
 
             return back()->withInput()->withErrors([
                 'error' => 'Terjadi kesalahan saat mendaftar. Silakan coba lagi.'
