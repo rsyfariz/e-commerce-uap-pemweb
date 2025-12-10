@@ -136,4 +136,24 @@ npm run dev
 http://localhost:8000
 ```
 
+12. Akun Login :
+
+```bash
+Customer
+email : rasyacahyo12@gmail.com
+password : 12345678
+```
+
+```bash
+Seller
+email : elektronik@marketplace.com
+password : password
+```
+
+```bash
+Admin
+email : admin@marketplace.com
+password : password
+```
+
 <h3 align="center">Big Thanks Kak Achmal & Kak Winaya 💕</h3>
